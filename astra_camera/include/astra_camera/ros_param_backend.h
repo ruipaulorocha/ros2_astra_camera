@@ -18,8 +18,9 @@ class ParametersBackend {
  public:
   explicit ParametersBackend(rclcpp::Node* node);
   ~ParametersBackend();
-  void addOnSetParametersCallback(
-      rclcpp::node_interfaces::NodeParametersInterface::OnParametersSetCallbackType callback);
+  // ** Quick workaround to avoid compilation error in ROS Jazzy: **
+  //void addOnSetParametersCallback(
+  //    rclcpp::node_interfaces::NodeParametersInterface::OnParametersSetCallbackType callback);
 
  private:
   rclcpp::Node* node_;

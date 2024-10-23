@@ -15,7 +15,9 @@ namespace astra_camera {
 
 Parameters::Parameters(rclcpp::Node *node)
     : node_(node), logger_(node_->get_logger()), params_backend_(node) {
-  params_backend_.addOnSetParametersCallback(
+  // ** Quick workaround to avoid compilation error in ROS Jazzy: **
+  //      -> Dynamic reconfiguration of parameters won't work!
+  /*params_backend_.addOnSetParametersCallback(
       [this](const std::vector<rclcpp::Parameter> &parameters) {
         for (const auto &parameter : parameters) {
           if (param_functions_.find(parameter.get_name()) != param_functions_.end()) {
@@ -33,7 +35,7 @@ Parameters::Parameters(rclcpp::Node *node)
         rcl_interfaces::msg::SetParametersResult result;
         result.successful = true;
         return result;
-      });
+      });*/
 }
 
 Parameters::~Parameters() noexcept {
