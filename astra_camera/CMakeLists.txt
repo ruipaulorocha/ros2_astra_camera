@@ -39,6 +39,7 @@ find_package(tf2_eigen REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_sensor_msgs REQUIRED)
+find_package(libgoogle-glog-dev REQUIRED)
 find_package(PkgConfig REQUIRED)
 
 pkg_search_module(LIBUVC REQUIRED libuvc)
